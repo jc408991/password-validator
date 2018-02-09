@@ -9,6 +9,33 @@ import static org.junit.Assert.*;
  */
 public class ValidatorTest {
     @Test
+    public void containsCapital() throws Exception {
+        String oneCapital = "1CapPass";
+        Validator capitalTest = new Validator();
+        int numCaps = capitalTest.containsCapital(oneCapital);
+        assertTrue(numCaps > 0);
+    }
+
+    @Test
+    public void containsDigits() throws Exception {
+        boolean containsADigit;
+
+        String oneDigit = "1DigitPass";
+        Validator digitTest = new Validator();
+        int numOfDigits = digitTest.containsDigits(oneDigit);
+        assertTrue(numOfDigits > 0);
+    }
+
+    @Test
+    public void containsNoSpace() throws Exception {
+        boolean contains;
+        String testPassword = "Password";
+        Validator spaceTest = new Validator();
+        contains = spaceTest.containsNoSpace(testPassword);
+        assertFalse(contains);
+    }
+
+    @Test
     public void getPasswordLength() throws Exception {
         int passLength = 0;
         boolean greaterThan7 = false;
